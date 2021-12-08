@@ -1,5 +1,6 @@
 {
   "exportall.config.folderListener": [
-    "/src/screens"
+    "/src/screens",
+    "/src/components"
   ]
 }
