@@ -1,5 +1,5 @@
 import React from 'react';
-import { StyleSheet, TouchableOpacity, TouchableOpacityProps } from 'react-native';
+import { TouchableOpacity, TouchableOpacityProps } from 'react-native';
 
 import { useTheme } from '@hooks';
 
@@ -25,5 +25,3 @@ const Button = ({ children, style, ...rest }: TouchableOpacityProps) => {
 };
 
 export default Button;
-
-const styles = StyleSheet.create({});

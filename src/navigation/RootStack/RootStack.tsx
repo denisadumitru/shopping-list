@@ -5,7 +5,7 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { Dashboard, Welcome } from '@screens';
 import { Stacks } from '@navigation';
 import useTheme from '@hooks/useTheme';
-import { BackButton, Icon, Text } from '@components';
+import { Icon } from '@components';
 
 const Stack = createNativeStackNavigator();
 
@@ -17,8 +17,6 @@ function RootStack() {
       backgroundColor: colors.primary,
       color: colors.tertiary,
     },
-    headerRight: () => <Text>header right</Text>,
-    // headerLeft: () => <BackButton tintColor={colors.tertiary} />,
     headerBackImage: () => <Icon name="backArrow" color={colors.white} />,
     headerBackTitle: '',
     headerTintColor: colors.white,

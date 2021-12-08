@@ -1,15 +1,13 @@
 import React, { createContext, ReactNode, useContext, useReducer } from 'react';
 import { Slice } from '@reduxjs/toolkit';
 
-const createProvider = ({ slice, initialState }: { slice: Slice; initialState: any }) => {
+const createProvider = <S,>({ slice, initialState }: { slice: Slice; initialState: S }) => {
   const { actions, reducer } = slice;
 
-  type StateKeys = keyof typeof initialState;
-  type ActionKeys = keyof typeof actions;
-  type ContextKeys = ActionKeys | StateKeys;
-  type ContextValue = Partial<Record<ContextKeys, any>>;
-
-  const Context = createContext(initialState as ContextValue);
+  const Context = createContext({
+    ...initialState,
+    ...(actions as unknown as Record<string, React.Dispatch<any>>),
+  });
 
   const Provider = ({ children }: { children: ReactNode }) => {
     const [state, dispatch] = useReducer(reducer, initialState);
@@ -21,7 +19,7 @@ const createProvider = ({ slice, initialState }: { slice: Slice; initialState: a
       },
       {}
     );
-    const value: ContextValue = {
+    const value = {
       ...state,
       ...actionsWithDispatch,
     };
@@ -30,7 +28,7 @@ const createProvider = ({ slice, initialState }: { slice: Slice; initialState: a
   };
 
   const useState = () => {
-    const ctx = useContext(Context) as ContextValue;
+    const ctx = useContext(Context);
 
     if (ctx === undefined) {
       throw new Error('useState is outside its corresponding Provider.');

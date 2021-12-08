@@ -13,7 +13,7 @@ import { QueryClient, QueryClientProvider, useQuery } from 'react-query';
 
 import useTheme, { ThemeProvider } from '@hooks/useTheme';
 import { RootStack } from '@navigation';
-import { SimpleProvider } from '@components/providers';
+import { SimpleProvider } from '@providers';
 
 const queryClient = new QueryClient();
 
