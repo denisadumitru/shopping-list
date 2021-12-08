@@ -10,7 +10,7 @@ export interface IText extends TextProps {
 
 const { PRIMARY_FONT_REGULAR, PRIMARY_FONT_BOLD, PRIMARY_FONT_SEMI } = theme.fonts;
 
-const Text = ({ children = '', as = 'P1', color, ...restProps }: IText) => {
+export const Text = ({ children = '', as = 'P1', color, ...restProps }: IText) => {
   const baseStyle = {
     color: '',
   };

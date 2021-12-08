@@ -1,9 +1,9 @@
-import React, { useEffect } from 'react';
-import { StyleSheet, TouchableOpacity, View } from 'react-native';
+import React from 'react';
+import { StyleSheet, View } from 'react-native';
 
 import { useQuery } from 'react-query';
 
-import { Card, Text } from '@components';
+import { Button, Card, Text } from '@components';
 import { SimpleProvider } from '@components/providers';
 import { useTheme } from '@hooks';
 import { productsApi } from '@services';
@@ -16,9 +16,9 @@ const Dashboard = () => {
   return (
     <View style={[styles.screen, { backgroundColor: colors.white }]}>
       <Text>flag: {flag.toString()}</Text>
-      <TouchableOpacity onPress={toggleFlag}>
+      <Button onPress={toggleFlag}>
         <Text>TOGGLE FLAG</Text>
-      </TouchableOpacity>
+      </Button>
       <Card style={{ height: 200 }}>
         <Text>some card text</Text>
       </Card>
