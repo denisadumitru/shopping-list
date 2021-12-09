@@ -29,6 +29,7 @@ module.exports = {
     'react/react-in-jsx-scope': 'off',
     '@typescript-eslint/no-explicit-any': 'off',
     'react-native/no-inline-styles': 'off',
+    'import/namespace': ['error', { allowComputed: true }],
     'import/order': [
       'warn',
       {

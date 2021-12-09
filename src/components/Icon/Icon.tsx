@@ -1,13 +1,12 @@
-import React, { useRef, useState, useEffect } from 'react';
+import React from 'react';
 import { SvgXml } from 'react-native-svg';
 
 import * as icons from '@assets/icons';
-import { backArrow } from '@assets/icons/backArrow';
-
 import { useTheme } from '@hooks';
 
+type IconName = keyof typeof icons;
 export interface IIcon {
-  name: string;
+  name: IconName;
   color?: any;
   size?: number;
 }
