@@ -22,7 +22,7 @@ export const Text = ({ children = '', as = 'P1', color, ...restProps }: IText) =
   );
 };
 
-const styles = StyleSheet.create({
+export const styles = StyleSheet.create({
   H1: {
     fontFamily: PRIMARY_FONT_BOLD,
     fontSize: 30,

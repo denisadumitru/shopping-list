@@ -1,4 +1,6 @@
 export * from './backArrow';
+export * from './confirm';
+export * from './deleteIcon';
 export * from './edit';
 export * from './filter';
 export * from './heartFill';

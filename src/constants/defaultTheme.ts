@@ -11,6 +11,8 @@ export default {
     inputFill: '#ffffff',
     inputOutline: '#ffffff',
     shadowColor: '#04151f',
+    success: '#27a300',
+    error: '#ff0000',
   },
   sizes: {
     borderRadius: 8,
