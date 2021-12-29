@@ -1,4 +1,5 @@
 export * from './backArrow';
+export * from './close';
 export * from './confirm';
 export * from './deleteIcon';
 export * from './edit';

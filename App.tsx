@@ -9,11 +9,11 @@
  */
 
 import React from 'react';
-import { QueryClient, QueryClientProvider, useQuery } from 'react-query';
+import { QueryClient, QueryClientProvider } from 'react-query';
 
 import useTheme, { ThemeProvider } from '@hooks/useTheme';
 import { RootStack } from '@navigation';
-import { SimpleProvider } from '@providers';
+import { SimpleProvider, LocalRealmProvider } from '@providers';
 
 const queryClient = new QueryClient();
 
@@ -22,11 +22,13 @@ const App = () => {
 
   return (
     <ThemeProvider value={theme}>
-      <QueryClientProvider client={queryClient}>
-        <SimpleProvider.Provider>
-          <RootStack />
-        </SimpleProvider.Provider>
-      </QueryClientProvider>
+      <LocalRealmProvider>
+        <QueryClientProvider client={queryClient}>
+          <SimpleProvider.Provider>
+            <RootStack />
+          </SimpleProvider.Provider>
+        </QueryClientProvider>
+      </LocalRealmProvider>
     </ThemeProvider>
   );
 };

@@ -3,7 +3,7 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
 import { Dashboard, Welcome } from '@screens';
-import { Stacks } from '@navigation';
+import { ProductsStack, Stacks } from '@navigation';
 import useTheme from '@hooks/useTheme';
 import { Icon } from '@components';
 
@@ -13,18 +13,17 @@ function RootStack() {
   const { colors } = useTheme();
 
   const options = {
-    headerStyle: {
-      backgroundColor: colors.primary,
-      color: colors.tertiary,
-    },
-    headerBackImage: () => <Icon name="backArrow" color={colors.white} />,
-    headerBackTitle: '',
-    headerTintColor: colors.white,
+    headerShown: false,
   };
   return (
     <NavigationContainer>
       <Stack.Navigator screenOptions={options}>
-        <Stack.Screen name={Stacks.Welcome} component={Welcome} />
+        {/* <Stack.Screen name={Stacks.Welcome} component={Welcome} /> */}
+        <Stack.Screen
+          name={Stacks.ProductsStack}
+          options={{ title: 'Categories' }}
+          component={ProductsStack}
+        />
         <Stack.Screen
           // options={{ header: () => null }}
           name={Stacks.Dashboard}

@@ -1,4 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit';
+import { ObjectId } from 'bson';
 
 import createProvider from './BaseProvider';
 
@@ -6,14 +7,16 @@ import { ProductCategoryType } from '@types';
 
 const initialState: { categories: ProductCategoryType[] } = {
   categories: [
-    {
-      name: 'Sweet fruits',
-      items: [],
-    },
-    {
-      name: 'Sour fruits',
-      items: [],
-    },
+    // {
+    //   id: new ObjectId(),
+    //   name: 'Sweet fruits',
+    //   items: [],
+    // },
+    // {
+    //   id: new ObjectId(),
+    //   name: 'Sour fruits',
+    //   items: [],
+    // },
   ],
 };
 
@@ -21,8 +24,8 @@ const slice = createSlice({
   name: 'ProductCategories',
   initialState,
   reducers: {
-    addCategory(state, { payload }) {
-      state.categories = [...state.categories, payload];
+    setCategories(state, { payload }) {
+      state.categories = payload;
     },
   },
 });

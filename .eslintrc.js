@@ -36,6 +36,7 @@ module.exports = {
         'newlines-between': 'always-and-inside-groups',
       },
     ],
+    'react-hooks/exhaustive-deps': 'warn',
   },
   plugins: ['react', 'react-hooks', 'react-native', '@typescript-eslint', 'prettier', 'import'],
 };
