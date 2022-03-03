@@ -4,7 +4,7 @@ import { ColorValue, Text as RNText, TextProps, StyleSheet } from 'react-native'
 import theme from '@constants/defaultTheme';
 
 export interface IText extends TextProps {
-  as?: 'H1' | 'H2' | 'H3' | 'H4' | 'P1' | 'P2' | 'P3' | 'BTN';
+  as?: 'H1' | 'H2' | 'H3' | 'H4' | 'P1' | 'P2' | 'P3' | 'BTN' | 'UPPERCASE';
   color?: ColorValue;
 }
 
@@ -62,6 +62,12 @@ export const styles = StyleSheet.create({
     fontFamily: PRIMARY_FONT_BOLD,
     fontSize: 16,
     lineHeight: 20,
+  },
+  UPPERCASE: {
+    fontFamily: PRIMARY_FONT_REGULAR,
+    fontSize: 14,
+    lineHeight: 19,
+    textTransform: 'uppercase',
   },
 });
 

@@ -5,4 +5,7 @@ export type ProductsStackParams = {
   [RouteNames.AddEditCategory]: {
     params: { category: ProductCategoryType };
   };
+  [RouteNames.Category]: {
+    params: { category: ProductCategoryType };
+  };
 };

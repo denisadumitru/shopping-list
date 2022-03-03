@@ -3,18 +3,15 @@ import { FlatList, StyleSheet, View } from 'react-native';
 
 import ProductCategory from './ProductCategory';
 
-// TODO remove?
-import AddCategoryCard from './AddCategoryCard';
-
 import { useNavigation, useTheme } from '@hooks';
 import { ProductCategoriesProvider } from '@providers';
 import IconButton from '@components/Button/IconButton';
 import { RouteNames } from '@navigation';
 import { ProductCategoryType } from '@types';
 import useProductCategories from '@hooks/useProductCategories';
-import { Text } from '@components';
+import { Icon, Text } from '@components';
 
-const Welcome = () => {
+const MainScreen = () => {
   const { navigate, push } = useNavigation();
   const { spacing, colors } = useTheme();
   const { categories } = ProductCategoriesProvider.useState();
@@ -23,9 +20,12 @@ const Welcome = () => {
   const [showTempCategory, setShowTempCategory] = useState(false);
 
   useEffect(() => {
-    console.log('mounted Welcome');
     getCategories();
   }, []);
+
+  const onCategoryPress = (category: ProductCategoryType) => {
+    push(RouteNames.Category, { category });
+  };
 
   const onAddCategoryPress = () => {
     navigate(RouteNames.AddEditCategory);
@@ -34,8 +34,6 @@ const Welcome = () => {
   const onEditCategoryPress = (category: ProductCategoryType) => {
     push(RouteNames.AddEditCategory, { category });
   };
-
-  const onCategoryPress = (category: ProductCategoryType) => {};
 
   return (
     <View style={[styles.screen, { marginHorizontal: spacing.m, paddingVertical: spacing.xl }]}>
@@ -51,6 +49,15 @@ const Welcome = () => {
               onEditPress={() => onEditCategoryPress(item.item)}
             />
           )}
+          ListEmptyComponent={
+            <View style={styles.emptyList}>
+              <Icon height={240} width={320} name="taskList" />
+              <Text
+                style={[styles.emptyListText, { color: colors.grey }]}
+                as="H3"
+              >{`There are no lists created at the moment`}</Text>
+            </View>
+          }
         />
       </View>
 
@@ -65,8 +72,7 @@ const Welcome = () => {
   );
 };
 
-export default Welcome;
-// export default React.memo(Welcome);
+export default MainScreen;
 
 const styles = StyleSheet.create({
   screen: {
@@ -82,6 +88,13 @@ const styles = StyleSheet.create({
     overflow: 'visible',
     width: '100%',
   },
+  emptyList: {
+    alignItems: 'center',
+  },
+  emptyListText: {
+    textAlign: 'center',
+    marginTop: 40,
+  },
   addButton: {
     position: 'absolute',
     bottom: 24,
@@ -94,6 +107,5 @@ const styles = StyleSheet.create({
   categoryCard: {
     height: 120,
     justifyContent: 'space-between',
-    overflow: 'hidden',
   },
 });

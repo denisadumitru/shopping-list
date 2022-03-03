@@ -24,8 +24,14 @@ export default function useProductCategories() {
     // setCategories([...categories, category]);
   };
 
+  const deleteCategory = (category: ProductCategoryType) => {
+    localRealm.removeRealmObject(category, ProductCategorySchema.schema.name);
+    getCategories();
+  };
+
   return {
     getCategories,
     addCategory,
+    deleteCategory,
   };
 }

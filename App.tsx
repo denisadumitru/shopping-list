@@ -13,7 +13,7 @@ import { QueryClient, QueryClientProvider } from 'react-query';
 
 import useTheme, { ThemeProvider } from '@hooks/useTheme';
 import { RootStack } from '@navigation';
-import { SimpleProvider, LocalRealmProvider } from '@providers';
+import { ProductCategoriesProvider, SimpleProvider, LocalRealmProvider } from '@providers';
 
 const queryClient = new QueryClient();
 
@@ -24,9 +24,11 @@ const App = () => {
     <ThemeProvider value={theme}>
       <LocalRealmProvider>
         <QueryClientProvider client={queryClient}>
-          <SimpleProvider.Provider>
-            <RootStack />
-          </SimpleProvider.Provider>
+          <ProductCategoriesProvider.Provider>
+            <SimpleProvider.Provider>
+              <RootStack />
+            </SimpleProvider.Provider>
+          </ProductCategoriesProvider.Provider>
         </QueryClientProvider>
       </LocalRealmProvider>
     </ThemeProvider>

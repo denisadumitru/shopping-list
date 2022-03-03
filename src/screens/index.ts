@@ -1,2 +1,4 @@
+export * from './Category';
 export * from './Dashboard';
-export * from './Welcome';
+export { default as AddEditCategory } from './MainScreen/AddEditCategory/AddEditCategory';
+export * from './MainScreen';

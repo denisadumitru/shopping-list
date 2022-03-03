@@ -14,5 +14,5 @@ module.exports = {
       },
     }),
   },
-  server: { port: 8083 },
+  server: { port: 8081 },
 };

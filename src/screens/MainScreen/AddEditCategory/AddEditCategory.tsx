@@ -32,10 +32,12 @@ const AddEditCategory = ({ route }: ProductCategoryProps) => {
   const navigation = useNavigation();
   const [backModalVisible, setBackModalVisible] = useState(false);
   const [onDiscardPress, setOnDiscardPress] = useState<() => void>();
-  const { addCategory } = useProductCategories();
+  const { addCategory, deleteCategory } = useProductCategories();
 
   useEffect(() => {
-    if (!initialCategory) inputRef?.current?.focus();
+    // if (!initialCategory) {
+    inputRef?.current?.focus();
+    // }
   }, []);
 
   // TODO this is not working
@@ -71,7 +73,9 @@ const AddEditCategory = ({ route }: ProductCategoryProps) => {
     navigation.goBack();
   };
 
-  const onDeletePress = () => {};
+  const onDeletePress = () => {
+    deleteCategory(category);
+  };
 
   return (
     <>
@@ -96,7 +100,12 @@ const AddEditCategory = ({ route }: ProductCategoryProps) => {
         <Button onPress={onSavePress} style={styles.actionButton} text="Save" />
         {/* <Button style={styles.actionButton} type="secondary" text="Cancel" /> */}
         {initialCategory && (
-          <Button textStyle={{ color: colors.error }} type="secondary" text="Delete category" />
+          <Button
+            onPress={onDeletePress}
+            textStyle={{ color: colors.error }}
+            type="secondary"
+            text="Delete category"
+          />
         )}
       </View>
 

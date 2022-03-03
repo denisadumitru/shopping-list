@@ -29,7 +29,7 @@ export default Card;
 const styles = StyleSheet.create({
   card: {
     shadowOffset: { width: 0, height: 3 },
-    shadowOpacity: 0.2,
+    shadowOpacity: 0.02,
     shadowRadius: 3,
   },
 });

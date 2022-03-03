@@ -6,5 +6,6 @@ export * from './edit';
 export * from './filter';
 export * from './heartFill';
 export * from './heartOutline';
+export * from './minus';
 export * from './plus';
 export * from './settings';
